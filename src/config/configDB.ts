@@ -1,6 +1,7 @@
-import '../dotenvConfig';
+// eslint-disable-next-line @typescript-eslint/no-require-imports
+require('../dotenvConfig');
 
-export const dbConfig = {
+module.exports = {
     define: {
         charset: 'utf8mb4',
         collate: 'utf8mb4_bin'

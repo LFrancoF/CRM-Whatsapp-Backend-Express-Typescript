@@ -1,9 +1,11 @@
-import { Sequelize, SequelizeOptions } from 'sequelize-typescript';
-import { dbConfig } from './config';
+import { Sequelize } from 'sequelize-typescript';
 
 import Queue from '../models/Queue';
 
-const sequelize = new Sequelize(dbConfig as SequelizeOptions);
+// eslint-disable-next-line @typescript-eslint/no-require-imports
+const dbConfig = require('../config/configDB');
+
+const sequelize = new Sequelize(dbConfig);
 
 const models = [Queue];
 
