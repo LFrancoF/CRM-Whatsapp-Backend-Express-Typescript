@@ -7,11 +7,17 @@ import {
     PrimaryKey,
     AutoIncrement,
     AllowNull,
-    Unique
+    Unique,
+    BelongsToMany
 } from 'sequelize-typescript';
+import User from './User';
+import UserQueue from './UserQueue';
+
+import Whatsapp from './Whatsapp';
+import WhatsappQueue from './WhatsappQueue';
 
 @Table
-class Queue extends Model<Queue> {
+class Queue extends Model {
     @PrimaryKey
     @AutoIncrement
     @Column
@@ -35,6 +41,12 @@ class Queue extends Model<Queue> {
 
     @UpdatedAt
     updatedAt: Date;
+
+    @BelongsToMany(() => Whatsapp, () => WhatsappQueue)
+    whatsapps: Array<Whatsapp & { WhatsappQueue: WhatsappQueue }>;
+
+    @BelongsToMany(() => User, () => UserQueue)
+    users: Array<User & { UserQueue: UserQueue }>;
 }
 
 export default Queue;

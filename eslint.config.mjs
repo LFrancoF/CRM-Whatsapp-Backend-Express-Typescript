@@ -21,7 +21,7 @@ export default [
     {
         plugins: {
             "@typescript-eslint": typescriptEslint,
-            prettier,
+            "prettier": prettier,
         },
 
         languageOptions: {
@@ -46,8 +46,7 @@ export default [
             "import/prefer-default-export": "off",
             "no-console": "off",
             "no-param-reassign": "off",
-            "prettier/prettier": "error",
-
+            
             "import/extensions": ["error", "ignorePackages", {
                 ts: "never",
             }],
